@@ -1,0 +1,28 @@
+public class Solution {
+    public int SingleNumber(int[] nums) {
+        
+        int result = 0;
+        
+        if(nums.Length == 0)
+            return 0;
+        
+        int sum,a;
+        for(int i =0 ; i < 32; i++)
+        {
+            sum = 0;
+            a = (1 << i);
+            for(int j =0 ; j< nums.Length;j++)
+            {
+                if(nums[j] & a == 1)
+                    sum++;
+                
+                
+            }
+            
+        if ((sum % 3) == 1)
+        result |= a;
+        }
+        
+        return result;
+    }
+}
